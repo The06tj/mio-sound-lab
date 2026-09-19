@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {phaseAmplitude,phaseSample,combMagnitude,firstNotch,stereoSample,monoSample,seededNoise,musicLayers} from '../dist/science.js';
+const near=(a,b,tol=1e-9)=>assert.ok(Math.abs(a-b)<tol,`${a} != ${b}`);
+test('Equal sine cancellation across a complete cycle',()=>{for(const [deg,expected] of [[0,1],[90,Math.SQRT1_2],[180,0],[360,1]])near(phaseAmplitude(deg),expected);for(let i=0;i<10000;i++)near(phaseSample(i/48000,180),0);});
+test('Phase values at a nontrivial time agree with independent trig sum',()=>{const t=.0017,angle=73;near(phaseSample(t,angle),Math.sin(2*Math.PI*220*t+angle*Math.PI/360)*Math.cos(angle*Math.PI/360));});
+test('Zero-delay path is unity at all frequencies; no notch',()=>{assert.equal(firstNotch(0),null);for(let f=0;f<24000;f+=31)near(combMagnitude(f,0),1);});
+test('Comb nulls and peaks follow odd/even half-periods',()=>{for(const ms of [0.1,1,2,5,10]){near(firstNotch(ms),500/ms);for(let k=0;k<10;k++){near(combMagnitude((2*k+1)*500/ms,ms),0);near(combMagnitude(k*1000/ms,ms),1);}}});
+test('Stereo fold preserves Mid independently of Side width',()=>{for(const width of [0,.25,.5,1])for(const m of [-.9,0,.8])for(const s of [-.6,0,.75])near(monoSample(...stereoSample(m,s,width)),m/2);});
+test('Pure Side cancels, a hard-panned sound does not',()=>{near(monoSample(...stereoSample(0,.7,1)),0);near(monoSample(.8,0),.4);});
+test('Procedural music and noise are finite, reproducible and bounded',()=>{assert.deepEqual(seededNoise(500),seededNoise(500));for(const rate of [44100,48000]){const layers=musicLayers(rate);assert.equal(layers.mid.length,rate*8);let energy=0;for(let i=0;i<layers.mid.length;i++){const [l,r]=stereoSample(layers.mid[i],layers.side[i],1);assert.ok(Number.isFinite(l)&&Math.abs(l)<1&&Math.abs(r)<1);energy+=l*l+r*r;}assert.ok(energy>100);near(layers.mid[0],0);near(layers.side[0],0);assert.ok(Math.abs(layers.mid.at(-1))<.005);}});

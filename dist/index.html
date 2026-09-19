@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#11151a">
+<meta name="description" content="三个能看、能听、能动手的声音实验。Explore phase cancellation, comb filtering and stereo with Mio Sound Lab.">
+<title>Mio Sound Lab · 声音小实验室</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%2311151a'/%3E%3Cpath d='M7 21h5l4-11 8 21 4-10h5' stroke='%23d7fc70' stroke-width='3' fill='none'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="./styles.css">
+<script type="module" src="./app.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#lab">跳到实验 / Skip to lab</a>
+<header class="header"><a class="brand" href="./" aria-label="Mio Sound Lab"><span class="brand-symbol">∿</span><span>MIO <b>SOUND LAB</b></span></a><div class="header-right"><span class="edition">SMALL EXPERIMENTS. BIG LITTLE REVELATIONS.</span><div class="language" aria-label="Language"><button id="lang-zh" aria-pressed="true">中文</button><button id="lang-en" aria-pressed="false">EN</button></div></div></header>
+<main>
+<section class="intro"><div><div class="eyebrow">THE LISTENING SERIES / VOL. 01</div><h1 id="headline">声音，有时不听话<span>。</span></h1><p id="subtitle">先猜一猜，再动动手。把耳朵里的问号，变成眼前的波形。</p></div><div class="intro-note"><span class="small-wave">▁▃▆▂▇▄▂</span><span id="intro-note">3 个实验<br>一次听懂一个小秘密</span></div></section>
+<nav id="experiments" class="experiment-tabs" aria-label="Experiments"><button class="experiment-tab active"><span class="tab-number">01</span><span><b>消失的声音</b><small>相位与抵消</small></span><span class="tab-mark">↗</span></button><button class="experiment-tab"><span class="tab-number">02</span><span><b>一毫秒的铁桶</b><small>延迟与梳状滤波</small></span><span class="tab-mark">↗</span></button><button class="experiment-tab"><span class="tab-number">03</span><span><b>宽度去哪儿了？</b><small>立体声与单声道</small></span><span class="tab-mark">↗</span></button></nav>
+<div id="lab" class="lab-layout" tabindex="-1">
+<section class="instrument" aria-label="Interactive audio experiment"><div class="instrument-top"><span class="eyebrow" id="instrument-label">01 / PHASE CANCELLATION</span><span class="live-badge" id="audio-status">声音已暂停</span></div><div class="chart-heading"><div><h2 id="chart-title">两条波形，一起听。</h2><p id="chart-subtitle">同样的频率，同样的振幅。只改变它们的相对位置。</p></div><div class="readout"><strong id="main-value">0<span>°</span></strong><small id="value-label">相位差</small></div></div><div class="visualizer"><canvas id="scope" aria-label="Waveform visualization"></canvas><div id="chart-legend" class="chart-legend"><span class="legend-a">声音 A</span><span class="legend-b">声音 B</span><span class="legend-sum">叠加后</span></div></div><div id="control-area" class="control-area"></div><div class="transport"><button id="play" class="play-button" disabled><span aria-hidden="true">▶</span> <span id="play-label">开始听</span></button><label class="volume-control"><span id="volume-label">音量</span><input id="volume" type="range" min="0" max="100" value="25" aria-label="音量"><output id="volume-value">25%</output></label><span class="headphone-note" id="headphone-note">从低音量开始听</span></div><p id="audio-error" class="audio-error" role="alert" hidden></p></section>
+<aside class="notebook"><div class="notebook-title"><span class="eyebrow" id="notebook-label">YOUR LAB NOTES</span><span id="progress">00 / 03</span></div><div id="learning-flow"></div></aside>
+</div>
+<div class="below-lab"><span id="local-note">在你的浏览器里发声 · 无上传 · 无追踪脚本</span><button id="reset" class="text-button">重做这个实验 ↺</button></div>
+<footer><span>MIO SOUND LAB <span class="footer-slash">/</span> <span id="footer-note">给好奇的耳朵。</span></span><div><a href="https://github.com/The06tj/mio-sound-lab" target="_blank" rel="noopener">GitHub ↗</a><button id="about-toggle" class="text-button" aria-expanded="false" aria-controls="about">原理与来源</button></div></footer>
+<section id="about" class="about" hidden></section>
+</main>
+<div id="announcer" class="sr-only" role="status" aria-live="polite"></div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "mio-sound-lab",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Three interactive listening experiments: phase, comb filtering and stereo to mono.",
+  "scripts": {"test": "node --test tests/*.test.mjs", "start": "python3 -m http.server 4186 --directory dist"}
+}
