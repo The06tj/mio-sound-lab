@@ -9,7 +9,7 @@ Three small, bilingual listening experiments about phenomena that are easy to mi
 | Experiment | Try it | Discover |
 | --- | --- | --- |
 | 01 · The disappearing sound / 消失的声音 | Move the relative phase of two 220 Hz sine waves | Equal, opposite signals cancel at 180° |
-| 02 · One millisecond later / 一毫秒的铁桶 | Mix noise with a copy delayed by 0–10 ms | A short delay creates a comb of spectral notches |
+| 02 · One millisecond later / 一毫秒之后 | Mix noise with a copy delayed by 0–10 ms | A short delay creates a comb of spectral notches |
 | 03 · Where did the width go? / 宽度去哪儿了？ | Switch an original Mid/Side arrangement to mono | Opposite-polarity Side cancels; shared Mid remains |
 
 Each experiment follows **predict → explore → reveal**. Native sliders support keyboard and touch. Presets make exact comparisons easy. The responsive interface offers 中文 / EN, reduced-motion support, explicit playback and conservative default volume.
