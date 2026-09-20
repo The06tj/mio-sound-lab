@@ -72,6 +72,18 @@ Enable GitHub Pages with **Source: GitHub Actions**. Pushes to `main` run the nu
 
 All sounds are synthesized by this project. No Ableton code, branding or audio assets are used. Not affiliated with Ableton.
 
+## Contributors
+
+Made by [Tim (@The06tj)](https://github.com/The06tj) & [Mio (@Mio0817)](https://github.com/Mio0817).
+
+Tim is the project owner and maintainer. Mio is the AI assistant used through OpenAI Codex for implementation, documentation, and testing.
+
+## 贡献者
+
+由 [Tim (@The06tj)](https://github.com/The06tj) 与 [Mio (@Mio0817)](https://github.com/Mio0817) 共同制作。
+
+Tim 是项目所有者与维护者。Mio 是通过 OpenAI Codex 参与实现、文档与测试的 AI 助手。
+
 ## License
 
 MIT. See [LICENSE](LICENSE).
